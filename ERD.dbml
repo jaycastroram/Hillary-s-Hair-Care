@@ -1,0 +1,36 @@
+Table Customers {
+  Id int [pk]
+  Name string [not null]
+  Email string [not null]
+  Phone string
+  CreatedAt datetime [not null]
+}
+
+Table Stylists {
+  Id int [pk]
+  Name string [not null]
+  IsActive bool [not null]
+  CreatedAt datetime [not null]
+}
+
+Table Services {
+  Id int [pk]
+  Name string [not null]
+  Price decimal [not null]
+  Description string
+}
+
+Table Appointments {
+  Id int [pk]
+  ScheduledFor datetime [not null]
+  CustomerId int [ref: > Customers.Id]
+  StylistId int [ref: > Stylists.Id]
+  IsCanceled bool [not null]
+  CreatedAt datetime [not null]
+}
+
+Table AppointmentServices {
+  Id int [pk]
+  AppointmentId int [ref: > Appointments.Id]
+  ServiceId int [ref: > Services.Id]
+}

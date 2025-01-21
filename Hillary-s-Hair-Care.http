@@ -1,0 +1,6 @@
+@Hillary_s_Hair_Care_HostAddress = http://localhost:5249
+
+GET {{Hillary_s_Hair_Care_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
